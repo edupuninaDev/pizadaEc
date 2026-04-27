@@ -101,3 +101,11 @@ Para ejecutar prisma
 
 npx prisma migrate dev --name add_users_roles
 npx prisma generate
+
+
+feature/auth → login/register
+feature/users → perfiles
+feature/products → catálogo
+feature/cart → carrito
+feature/orders → pedidos
+feature/discounts → promociones
