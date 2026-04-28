@@ -7,6 +7,9 @@ import { CategoriesModule } from './modules/categories/categories.module';
 import { ProductsModule } from './modules/products/products.module';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 import { ProductImagesModule } from './modules/product-images/product-images.module';
+import { SizesModule } from './modules/sizes/sizes.module';
+import { ColorsModule } from './modules/colors/colors.module';
+import { ProductVariantsModule } from './modules/product-variants/product-variants.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -19,6 +22,9 @@ import { ProductImagesModule } from './modules/product-images/product-images.mod
     ProductsModule,
     CloudinaryModule,
     ProductImagesModule,
+    SizesModule,
+    ColorsModule,
+    ProductVariantsModule,
   ],
 })
 export class AppModule {}
