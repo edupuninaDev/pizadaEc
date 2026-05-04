@@ -10,6 +10,7 @@ import { ProductImagesModule } from './modules/product-images/product-images.mod
 import { SizesModule } from './modules/sizes/sizes.module';
 import { ColorsModule } from './modules/colors/colors.module';
 import { ProductVariantsModule } from './modules/product-variants/product-variants.module';
+import { CartModule } from './modules/cart/cart.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,6 +26,7 @@ import { ProductVariantsModule } from './modules/product-variants/product-varian
     SizesModule,
     ColorsModule,
     ProductVariantsModule,
+    CartModule,
   ],
 })
 export class AppModule {}
