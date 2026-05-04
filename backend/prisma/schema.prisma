@@ -22,6 +22,8 @@ model User {
   phone     String?
   isActive  Boolean  @default(true)
 
+  cart Cart?
+
   roleId    String
   role      Role     @relation(fields: [roleId], references: [id])
 
@@ -103,6 +105,8 @@ model ProductVariant {
   productId String
   product   Product  @relation(fields: [productId], references: [id])
 
+  cartItems CartItem[]
+
   sizeId    String
   size      Size     @relation(fields: [sizeId], references: [id])
 
@@ -113,4 +117,30 @@ model ProductVariant {
   updatedAt DateTime @updatedAt
 
   @@unique([productId, sizeId, colorId])
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id])
+  items     CartItem[]
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model CartItem {
+  id        String   @id @default(uuid())
+  quantity  Int
+
+  cartId    String
+  cart      Cart     @relation(fields: [cartId], references: [id])
+
+  variantId String
+  variant   ProductVariant @relation(fields: [variantId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([cartId, variantId])
 }
