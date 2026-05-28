@@ -82,10 +82,17 @@ export class ProductsService {
     });
   }
 
-  findAll(): Promise<ProductEntity[]> {
+  findAll() {
     return this.prisma.product.findMany({
       include: {
         category: true,
+        images: true,
+        variants: {
+          include: {
+            size: true,
+            color: true,
+          },
+        },
       },
       orderBy: {
         createdAt: 'desc',
@@ -108,11 +115,18 @@ export class ProductsService {
     return product;
   }
 
-  async findBySlug(slug: string): Promise<ProductEntity> {
+  async findBySlug(slug: string) {
     const product = await this.prisma.product.findUnique({
       where: { slug },
       include: {
         category: true,
+        images: true,
+        variants: {
+          include: {
+            size: true,
+            color: true,
+          },
+        },
       },
     });
 
