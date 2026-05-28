@@ -11,6 +11,7 @@ import { SizesModule } from './modules/sizes/sizes.module';
 import { ColorsModule } from './modules/colors/colors.module';
 import { ProductVariantsModule } from './modules/product-variants/product-variants.module';
 import { CartModule } from './modules/cart/cart.module';
+import { OrdersModule } from './modules/orders/orders.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -27,6 +28,7 @@ import { CartModule } from './modules/cart/cart.module';
     ColorsModule,
     ProductVariantsModule,
     CartModule,
+    OrdersModule,
   ],
 })
 export class AppModule {}
